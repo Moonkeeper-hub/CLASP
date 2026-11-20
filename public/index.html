@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CLASP · Classroom</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand"
+        >CLASP<span>LANGUAGE · TECHNOLOGY · CLASSROOM</span></a
+      >
+      <div id="connection">Локальная аудитория</div>
+    </header>
+    <main>
+      <section id="login">
+        <div class="intro">
+          <p class="eyebrow">ОБЩИЙ ЭКРАН. ОБЩАЯ ЗАДАЧА.</p>
+          <h1>Вся аудитория<br />на одной странице.</h1>
+          <p>
+            Смотрите демонстрацию, получайте материалы и работайте с заданиями в
+            браузере.
+          </p>
+        </div>
+        <div class="login-forms">
+          <form id="student-login">
+            <h2>Я студент</h2>
+            <label
+              >Ваше имя<input
+                name="name"
+                maxlength="60"
+                autocomplete="name"
+                required /></label
+            ><label
+              >Код занятия<input
+                name="code"
+                maxlength="8"
+                required
+                autocapitalize="characters" /></label
+            ><button>Присоединиться</button>
+          </form>
+          <details>
+            <summary>Вход преподавателя</summary>
+            <form id="teacher-login">
+              <label
+                >Название занятия<input
+                  name="title"
+                  maxlength="120"
+                  value="English for IT · Classroom"
+                  required /></label
+              ><label
+                >Ключ преподавателя<input
+                  name="key"
+                  type="password"
+                  required
+                  autocomplete="current-password" /></label
+              ><label
+                >ID занятия для продолжения (необязательно)<input
+                  name="lessonId" /></label
+              ><button>Открыть занятие</button>
+            </form>
+          </details>
+        </div>
+      </section>
+      <p id="error" role="alert" hidden></p>
+      <section id="classroom" hidden>
+        <div class="class-heading">
+          <div>
+            <p class="eyebrow" id="role-label"></p>
+            <h1 id="lesson-title"></h1>
+            <p id="lesson-code"></p>
+          </div>
+          <button class="secondary" id="leave">Выйти</button>
+        </div>
+        <div class="workspace">
+          <section class="stage">
+            <div class="section-heading">
+              <h2>Экран преподавателя</h2>
+              <button class="secondary" id="fullscreen">На весь экран</button>
+            </div>
+            <div id="screen">
+              <p id="screen-status">Подключение к трансляции…</p>
+            </div>
+            <div class="controls">
+              <button id="share" hidden disabled>Показать экран</button
+              ><button id="reconnect" class="secondary">
+                Подключить трансляцию</button
+              ><span id="media-status" role="status"></span>
+            </div>
+            <p class="hint">
+              Во время демонстрации можно продолжать работу с карточками.
+            </p>
+            <div id="attendance"></div>
+          </section>
+          <aside>
+            <div class="section-heading">
+              <h2>Карточки занятия</h2>
+              <button class="secondary" id="export">Сохранить</button>
+            </div>
+            <form id="card-form" hidden>
+              <label
+                >Тип<select name="kind">
+                  <option value="text">Материал</option>
+                  <option value="task">Задание с ответом</option>
+                </select></label
+              ><label
+                >Заголовок<input name="title" maxlength="120" required /></label
+              ><label
+                >Текст<textarea
+                  name="body"
+                  rows="5"
+                  maxlength="12000"
+                  required
+                ></textarea></label
+              ><button>Отправить аудитории</button>
+            </form>
+            <div id="cards"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/bundle.js"></script>
+  </body>
+</html>

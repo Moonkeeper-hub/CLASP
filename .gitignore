@@ -1,0 +1,7 @@
+node_modules/
+.env
+config/
+data/
+public/bundle.js
+clasp-root.crt
+*.log
